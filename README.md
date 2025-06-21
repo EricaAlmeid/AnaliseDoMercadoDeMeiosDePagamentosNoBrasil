@@ -32,9 +32,9 @@ Python
 #     'caminho/para/sua/planilha_bcb_meios_pagamento.xlsx',
 #     sheet_name='1.1 Quantidade de Cartões de Crédito'
 # )
-Você precisará descomentar essa linha e substituir 'caminho/para/sua/planilha_bcb_meios_pagamento.xlsx' pelo caminho real para o arquivo Excel que você baixou. Além disso, ajuste o sheet_name para as abas que você deseja analisar (ex: '1.1 Quantidade de Cartões de Crédito', '2.1.a Cartões de Crédito - Transações Domésticas - por Arranjo de Pagamento (Quantidade)', etc.).
 
-Importante: O código atualmente utiliza dados simulados para demonstração. Você precisará remover ou comentar a seção de "Simulação de Dados" e habilitar o carregamento real dos dados do Excel para uma análise completa. Pode ser necessário ajustar parâmetros como skiprows ou header no pd.read_excel dependendo da estrutura exata da planilha do BCB.
+Importante: O código atualmente utiliza dados simulados para demonstração. Você precisará remover ou comentar a seção de "Simulação de Dados" e habilitar o carregamento 
+real dos dados do Excel para uma análise completa. Pode ser necessário ajustar parâmetros como skiprows ou header no pd.read_excel dependendo da estrutura exata da planilha do BCB.
 
 Execute o Script: Abra seu terminal ou PowerShell, navegue até o diretório onde o arquivo Python está salvo e execute:
 

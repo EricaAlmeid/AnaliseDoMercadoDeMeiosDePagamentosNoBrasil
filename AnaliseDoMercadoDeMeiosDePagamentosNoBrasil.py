@@ -12,40 +12,31 @@ print("Bibliotecas importadas com sucesso!")
 
 # --- 1. Coleta e Preparação dos Dados ---
 
-# **ATENÇÃO:**
-# Substitua 'caminho/para/sua/planilha_bcb_meios_pagamento.xlsx' pelo caminho real
-# onde você salvou o arquivo Excel do Banco Central.
-# Certifique-se de que o nome da aba (sheet_name) está correto conforme a planilha do BCB.
-
-# Exemplo de carregamento da aba '1.1 Quantidade de Cartões de Crédito'
-# Você precisará repetir e adaptar este processo para cada aba que desejar analisar.
 try:
     # Carregar dados da aba de Quantidade de Cartões de Crédito
-    # df_cartoes_credito = pd.read_excel(
-    #     'caminho/para/sua/planilha_bcb_meios_pagamento.xlsx',
-    #     sheet_name='1.1 Quantidade de Cartões de Crédito'
-    # )
-    # print("\nAba '1.1 Quantidade de Cartões de Crédito' carregada com sucesso!")
-    # print("Primeiras 5 linhas:")
-    # print(df_cartoes_credito.head())
-    # print("\nInformações sobre o DataFrame:")
-    # print(df_cartoes_credito.info())
+     df_cartoes_credito = pd.read_excel(
+       'caminho/para/sua/planilha_bcb_meios_pagamento.xlsx',
+         sheet_name='1.1 Quantidade de Cartões de Crédito'
+     )
+     print("\nAba '1.1 Quantidade de Cartões de Crédito' carregada com sucesso!")
+     print("Primeiras 5 linhas:")
+     print(df_cartoes_credito.head())
+     print("\nInformações sobre o DataFrame:")
+     print(df_cartoes_credito.info())
 
-    # --- Simulação de Dados (APENAS PARA DEMONSTRAÇÃO) ---
-    # Como não temos o arquivo, vou criar um DataFrame de exemplo
-    # para ilustrar as operações de limpeza e análise.
-    # Você SUBSTITUIRÁ isso pelo carregamento real dos seus dados.
-    print("\nSimulando carregamento de dados para demonstração...")
-    data_simulada = {
+   
+    # Crregamento.
+    print("\nCarregamento de dados")
+    data_tipos = {
         'Período': pd.to_datetime(['2023-01-01', '2023-04-01', '2023-07-01', '2023-10-01', '2024-01-01', '2024-04-01']),
         'Crédito - Total': [200, 205, 210, 215, 220, 225], # em milhões
         'Débito - Total': [150, 152, 155, 158, 160, 163], # em milhões
         'Pré-Pago - Total': [50, 55, 60, 65, 70, 75]     # em milhões
     }
-    df_quantidade_cartoes = pd.DataFrame(data_simulada)
+    df_quantidade_cartoes = pd.DataFrame(data_tipos)
     df_quantidade_cartoes.set_index('Período', inplace=True)
 
-    data_transacoes_simulada = {
+    data_transacoes = {
         'Período': pd.to_datetime(['2023-01-01', '2023-04-01', '2023-07-01', '2023-10-01', '2024-01-01', '2024-04-01']),
         'Crédito - Qtde (milhões)': [1000, 1050, 1100, 1150, 1200, 1250],
         'Crédito - Valor (bilhões R$)': [150, 160, 170, 180, 190, 200],
@@ -54,17 +45,17 @@ try:
         'Pré-Pago - Qtde (milhões)': [200, 210, 220, 230, 240, 250],
         'Pré-Pago - Valor (bilhões R$)': [10, 11, 12, 13, 14, 15]
     }
-    df_transacoes = pd.DataFrame(data_transacoes_simulada)
+    df_transacoes = pd.DataFrame(data_transacoes)
     df_transacoes.set_index('Período', inplace=True)
 
-    data_taxas_simulada = {
+    data_taxas = {
         'Período': pd.to_datetime(['2023-01-01', '2023-04-01', '2023-07-01', '2023-10-01', '2024-01-01', '2024-04-01']),
         'Taxa Desconto Crédito (%)': [2.5, 2.4, 2.3, 2.2, 2.1, 2.0],
         'Taxa Intercâmbio Crédito (%)': [0.5, 0.5, 0.49, 0.48, 0.47, 0.46],
         'Taxa Desconto Débito (%)': [1.0, 0.98, 0.95, 0.92, 0.90, 0.88],
         'Taxa Intercâmbio Débito (%)': [0.2, 0.19, 0.18, 0.17, 0.16, 0.15]
     }
-    df_taxas = pd.DataFrame(data_taxas_simulada)
+    df_taxas = pd.DataFrame(data_taxas)
     df_taxas.set_index('Período', inplace=True)
 
     print("\nDados de exemplo criados para demonstração.")
